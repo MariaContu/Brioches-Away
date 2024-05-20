@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://08ecccqeo5ej"]
+
+[ext_resource type="Texture2D" uid="uid://cpru46wrcletj" path="res://world/assets/tile_floor.png" id="1_i83i3"]
+[ext_resource type="Texture2D" uid="uid://ljv6f5ljdcej" path="res://world/assets/tile_floor_wall.png" id="2_1gflc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83de7"]
+resource_name = "floor"
+texture = ExtResource("1_i83i3")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_an0oh"]
+texture = ExtResource("2_1gflc")
+
+[sub_resource type="TileSet" id="TileSet_my6id"]
+sources/0 = SubResource("TileSetAtlasSource_83de7")
+sources/1 = SubResource("TileSetAtlasSource_an0oh")
+
+[node name="chao" type="TileMap"]
+tile_set = SubResource("TileSet_my6id")
+format = 2
