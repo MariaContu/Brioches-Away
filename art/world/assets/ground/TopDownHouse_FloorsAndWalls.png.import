@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpru46wrcletj"
-path="res://.godot/imported/tile_floor.png-37a71f2c46aed8a554a0fb703bb008cd.ctex"
+uid="uid://chiwgydj3uacm"
+path="res://.godot/imported/TopDownHouse_FloorsAndWalls.png-7a591caa46c1fa64a6dfed26252c5cdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/assets/tile_floor.png"
-dest_files=["res://.godot/imported/tile_floor.png-37a71f2c46aed8a554a0fb703bb008cd.ctex"]
+source_file="res://art/world/assets/ground/TopDownHouse_FloorsAndWalls.png"
+dest_files=["res://.godot/imported/TopDownHouse_FloorsAndWalls.png-7a591caa46c1fa64a6dfed26252c5cdc.ctex"]
 
 [params]
 

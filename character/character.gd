@@ -11,15 +11,13 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("interaction"):
-		_interact()
 	_move()
 	_animate()
 
 func _move():
 	var _direction: Vector2 = Vector2(
-		Input.get_axis("move_left","move_right"),
-		Input.get_axis("move_up","move_down")
+		Input.get_axis("move_left", "move_right"),
+		Input.get_axis("move_up", "move_down")
 	)
 	
 	if _direction != Vector2.ZERO:
@@ -30,10 +28,7 @@ func _move():
 	move_and_slide()
 
 func _animate():
-	if velocity.length()>2:
+	if velocity.length() > 2:
 		_state_machine.travel("walk")
 		return
 	_state_machine.travel("idle")
-
-func _interact():
-	print("interagiu!!! :)")

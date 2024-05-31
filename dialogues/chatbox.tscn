@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://584uh6wr6qx4"]
+
+[ext_resource type="Texture2D" uid="uid://4y6fw55pmqmv" path="res://art/chat-box.png" id="1_e7l15"]
+[ext_resource type="Script" path="res://dialogues/chatbox.gd" id="1_tf84a"]
+[ext_resource type="FontFile" uid="uid://lyy4kqfwawyb" path="res://dialogues/rainyhearts.ttf" id="3_rtxfe"]
+
+[node name="chatbox" type="MarginContainer"]
+offset_left = 42.0
+offset_top = 116.0
+offset_right = 278.0
+offset_bottom = 173.0
+script = ExtResource("1_tf84a")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_e7l15")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="label_margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 8
+
+[node name="text_label" type="Label" parent="label_margin"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.363551, 0.179211, 0.107654, 1)
+theme_override_fonts/font = ExtResource("3_rtxfe")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="letter_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="letter_timer" to="." method="_on_letter_timer_timeout"]
