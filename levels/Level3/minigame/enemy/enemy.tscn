@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjuqarejsx3ci"]
+
+[ext_resource type="Texture2D" uid="uid://b1s7qfk4c60bs" path="res://levels/Level3/minigame/assets/waterdrop.png" id="1_0j5dv"]
+[ext_resource type="Script" path="res://levels/Level3/minigame/enemy/enemy.gd" id="1_c2ysn"]
+
+[node name="enemy" type="RigidBody2D" groups=["drops"]]
+collision_layer = 8
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_c2ysn")
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -9, 5, 0, 5, 6, 3, 8, -3, 8, -5, 6, -5, 0)
+
+[node name="Waterdrop" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, 1.90735e-06)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_0j5dv")

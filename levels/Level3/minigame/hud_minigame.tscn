@@ -1,0 +1,179 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3jegadu0ds5"]
+
+[ext_resource type="FontFile" uid="uid://lyy4kqfwawyb" path="res://dialogues/rainyhearts.ttf" id="1_dpbsu"]
+[ext_resource type="Script" path="res://levels/Level3/minigame/hud_minigame.gd" id="1_p2n6q"]
+[ext_resource type="AudioStream" uid="uid://b1adixn1t0t1b" path="res://levels/Level3/minigame/sounds/button_minigame.mp3" id="3_bnjk4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwtjg"]
+bg_color = Color(0.74902, 0.631373, 0.560784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjgkr"]
+bg_color = Color(0.45098, 0.388235, 0.333333, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngu7g"]
+bg_color = Color(0.74902, 0.631373, 0.560784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vne3t"]
+bg_color = Color(0.74902, 0.631373, 0.560784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emq5b"]
+bg_color = Color(0.791273, 0.602172, 0.61597, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5l1el"]
+bg_color = Color(0.74641, 0.424165, 0.46702, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhfb5"]
+bg_color = Color(0.775998, 0.393789, 0.451075, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vkmu"]
+bg_color = Color(0.792157, 0.603922, 0.615686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="hud_minigame" type="CanvasLayer"]
+script = ExtResource("1_p2n6q")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 24.0
+offset_right = -64.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scorelabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_dpbsu")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="message_label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -16.0
+offset_right = 72.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_dpbsu")
+theme_override_font_sizes/font_size = 24
+text = "Fuja do Banho"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="info_label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 40.0
+offset_right = 168.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("1_dpbsu")
+text = "Para ganhar, ajude Agatha a fugir do banho por 10s!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="startButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.65098, 0.470588, 0.364706, 1)
+theme_override_colors/font_hover_color = Color(0.854474, 0.803532, 0.762747, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_dpbsu")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_dwtjg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cjgkr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ngu7g")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vne3t")
+text = "start
+"
+
+[node name="infoButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 7.92323
+offset_top = 115.893
+offset_right = 23.9232
+offset_bottom = 135.893
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_dpbsu")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_emq5b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5l1el")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mhfb5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8vkmu")
+text = "?"
+icon_alignment = 1
+
+[node name="message_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="buttonsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bnjk4")
+volume_db = -12.0
+
+[connection signal="pressed" from="Control/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/infoButton" to="." method="_on_info_button_pressed"]
+[connection signal="timeout" from="message_timer" to="." method="_on_message_timer_timeout"]

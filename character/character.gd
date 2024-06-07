@@ -3,6 +3,10 @@ extends CharacterBody2D
 @export_category("Objects")
 @export var _animation_tree: AnimationTree = null
 
+@onready var footstepssound = $footstepssound
+
+
+
 var speed = 64.0
 var _state_machine
 
@@ -13,6 +17,7 @@ func _ready():
 func _physics_process(delta):
 	_move()
 	_animate()
+	_play_footsteps()
 
 func _move():
 	var _direction: Vector2 = Vector2(
@@ -32,3 +37,11 @@ func _animate():
 		_state_machine.travel("walk")
 		return
 	_state_machine.travel("idle")
+
+func _play_footsteps():
+	if velocity.length() > 2:
+		if not footstepssound.playing:
+			footstepssound.play()
+	else:
+		if footstepssound.playing:
+			footstepssound.stop()
