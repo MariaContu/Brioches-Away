@@ -99,7 +99,9 @@ func interagir_porta():
 	if shown_finishlevel:
 		bgsound.stop()
 		levelpassedsound.play()
-		await levelpassedsound.finished
+		
+		TransitionLayer.transition("Level 5", "O Riacho")
+		await TransitionLayer.transitionfinished
 		#trocar de cena
 		get_tree().change_scene_to_file("res://levels/Level5/level_5.tscn")
 		return

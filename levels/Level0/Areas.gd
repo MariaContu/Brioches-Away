@@ -31,11 +31,6 @@ const lines_clock: Array[String] = [
 	"Hmm... As coisinhas não se mexem."
 ]
 
-var messages_shown_plant = false
-const lines_plant: Array[String] = [
-	"Uuuu que planta linda!"
-]
-
 var messages_shown_door_before = false
 const lines_door_before: Array[String] = [
 	"Ue... Tá trancada. Deve ter algo por aqui pra ajudar..."
@@ -105,20 +100,15 @@ func interagir_com_relogio():
 		await ChatManager.all_lines_displayed
 		messages_shown_clock = true
 
-func interagir_com_planta():
-	if messages_shown_plant:
-		return
-	if not ChatManager.is_message_active:
-		ChatManager.start_message(lines_plant)
-		await ChatManager.all_lines_displayed
-		messages_shown_plant = true
-
 func interagir_com_porta():
 	if messages_shown_door_after:
 		bgsound.stop()
 		levelpassedsound.play()
-		await levelpassedsound.finished
-		get_tree().change_scene_to_file("res://levels/Level3/level3.tscn")
+		
+		TransitionLayer.transition("Level 1", "A Sala de Estar")
+		await TransitionLayer.transitionfinished
+		
+		get_tree().change_scene_to_file("res://levels/Level1/level1.tscn")
 		return
 		
 	if key_found:

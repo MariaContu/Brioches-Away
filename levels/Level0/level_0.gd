@@ -26,8 +26,6 @@ func verificar_interacao():
 						interagir_com_estante()
 					"area_clock":
 						interagir_com_relogio()
-					"area_plant":
-						interagir_com_planta()
 					"area_door":
 						interagir_com_porta()
 	if not overlapping:
@@ -46,10 +44,6 @@ func interagir_com_estante():
 func interagir_com_relogio():
 	print("Interagindo com o relógio.")
 	areas.interagir_com_relogio()
-
-func interagir_com_planta():
-	print("Interagindo com a planta.")
-	areas.interagir_com_planta()
 
 func interagir_com_porta():
 	print("Interagindo com a porta.")

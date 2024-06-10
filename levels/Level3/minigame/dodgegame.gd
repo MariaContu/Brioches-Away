@@ -62,6 +62,14 @@ func _on_start_timer_timeout():
 	score_timer.start()
 
 func _on_drop_timer_timeout():
+	if score > 10:
+		#vamos alterar o wait time para aumentar a dificuldade
+		if score > 15:
+			drop_timer.wait_time = 0.2
+		
+		else:
+			drop_timer.wait_time = 0.4
+	
 	var drop = drop_scene.instantiate()
 	var drop_location = $drops_path/droppathlocation
 	drop_location.progress_ratio = randf()

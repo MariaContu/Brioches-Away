@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://lyy4kqfwawyb" path="res://dialogues/rainyhearts.ttf" id="3_rtxfe"]
 
 [node name="chatbox" type="MarginContainer"]
+visibility_layer = 512
+z_index = 10
 offset_left = 42.0
 offset_top = 116.0
 offset_right = 278.0

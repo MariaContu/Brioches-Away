@@ -243,6 +243,7 @@ data = PackedByteArray(255, 251, 212, 196, 0, 0, 231, 229, 230, 242, 13, 231, 3,
 loop = true
 
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("_animation_tree")]
+z_index = 2
 position = Vector2(157, 74)
 collision_mask = 255
 script = ExtResource("1_xx87t")
