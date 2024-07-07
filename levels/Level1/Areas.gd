@@ -3,6 +3,7 @@ extends Node2D
 @onready var levelpassedsound = $"../levelpassedsound"
 @onready var bgsound = $"../bgsound"
 @onready var area_inicial = $area_inicial
+@onready var main = $"../Main"
 
 var puzzle_solved = false
 var saindolevel = false
@@ -37,6 +38,7 @@ const lines_puzzle: Array[String] = [
 
 func _ready():
 	bgsound.play()
+	main.hide()
 
 func interacao_inicial():
 	if messages_on_begin:
@@ -75,7 +77,10 @@ func interagir_com_cozinha():
 
 func interagir_com_puzzle():
 	if messages_puzzle:
-		return
+		main.show()
+		await main.slide_solved
+		main.hide()
+		
 	if not ChatManager.is_message_active:
 			ChatManager.start_message(lines_puzzle)
 			await ChatManager.all_lines_displayed

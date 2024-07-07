@@ -4,17 +4,14 @@
 [ext_resource type="Script" path="res://dialogues/chatbox.gd" id="1_tf84a"]
 [ext_resource type="FontFile" uid="uid://lyy4kqfwawyb" path="res://dialogues/rainyhearts.ttf" id="3_rtxfe"]
 
-[node name="chatbox" type="MarginContainer"]
-visibility_layer = 512
-z_index = 10
-offset_left = 42.0
-offset_top = 116.0
-offset_right = 278.0
-offset_bottom = 173.0
+[node name="chatbox" type="CanvasLayer"]
+offset = Vector2(41, 113)
+transform = Transform2D(1, 0, 0, 1, 41, 113)
 script = ExtResource("1_tf84a")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 2
+offset_right = 236.0
+offset_bottom = 57.0
 texture = ExtResource("1_e7l15")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -22,7 +19,8 @@ patch_margin_right = 12
 patch_margin_bottom = 12
 
 [node name="label_margin" type="MarginContainer" parent="."]
-layout_mode = 2
+offset_right = 236.0
+offset_bottom = 57.0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 6

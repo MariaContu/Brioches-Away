@@ -79,7 +79,6 @@ func interagir_patinho():
 
 func interagir_mirror():
 	if shown_mirror:
-		#deve chamar o jogo
 		return
 	if not ChatManager.is_message_active:
 			ChatManager.start_message(lines_mirror)
@@ -88,7 +87,6 @@ func interagir_mirror():
 
 func interagir_toilet():
 	if shown_toilet:
-		#deve chamar o jogo
 		return
 	if not ChatManager.is_message_active:
 			ChatManager.start_message(lines_toilet)
@@ -100,10 +98,10 @@ func interagir_porta():
 		bgsound.stop()
 		levelpassedsound.play()
 		
-		TransitionLayer.transition("Level 5", "O Riacho")
+		TransitionLayer.transition("Level 4", "O Quintal")
 		await TransitionLayer.transitionfinished
 		#trocar de cena
-		get_tree().change_scene_to_file("res://levels/Level5/level_5.tscn")
+		get_tree().change_scene_to_file("res://levels/Level4/level_4.tscn")
 		return
 
 func start_minigame():

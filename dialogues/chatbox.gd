@@ -1,4 +1,4 @@
-extends MarginContainer
+extends CanvasLayer
 
 @onready var text_label = $"label_margin/text_label"
 @onready var letter_timer = $"letter_timer"

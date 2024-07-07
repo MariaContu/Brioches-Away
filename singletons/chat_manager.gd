@@ -45,3 +45,4 @@ func stop_message():
 		chat_box.queue_free()
 		is_message_active = false
 		current_line = 0
+
