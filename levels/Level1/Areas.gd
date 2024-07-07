@@ -3,7 +3,8 @@ extends Node2D
 @onready var levelpassedsound = $"../levelpassedsound"
 @onready var bgsound = $"../bgsound"
 @onready var area_inicial = $area_inicial
-@onready var main = $"../Main"
+@onready var slide = $"../slide"
+
 
 var puzzle_solved = false
 var saindolevel = false
@@ -38,7 +39,7 @@ const lines_puzzle: Array[String] = [
 
 func _ready():
 	bgsound.play()
-	main.hide()
+	slide.hide()
 
 func interacao_inicial():
 	if messages_on_begin:
@@ -77,9 +78,10 @@ func interagir_com_cozinha():
 
 func interagir_com_puzzle():
 	if messages_puzzle:
-		main.show()
-		await main.slide_solved
-		main.hide()
+		slide.show()
+		joga_slide()
+		await slide.slide_solved
+		slide.hide()
 		
 	if not ChatManager.is_message_active:
 			ChatManager.start_message(lines_puzzle)
@@ -102,3 +104,6 @@ func interagir_com_clock():
 			ChatManager.start_message(lines_clock)
 			await ChatManager.all_lines_displayed
 			messages_shown_clock = true
+
+func joga_slide():
+	slide.set_process_input(true)

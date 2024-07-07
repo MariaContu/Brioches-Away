@@ -1,68 +1,58 @@
-[gd_scene load_steps=12 format=3 uid="uid://nq2uyh6ucmku"]
+[gd_scene load_steps=12 format=3 uid="uid://bhmsh1y21j1c5"]
 
-[ext_resource type="Texture2D" uid="uid://c8pjfdmect14c" path="res://levels/Level1/slidepuzzle/img/tile1.png" id="1_464yg"]
-[ext_resource type="Script" path="res://levels/Level1/slidepuzzle/Area2D.gd" id="1_r8tyx"]
-[ext_resource type="Texture2D" uid="uid://c16210kjeca1s" path="res://levels/Level1/slidepuzzle/img/tile2.png" id="2_wo57h"]
-[ext_resource type="Texture2D" uid="uid://bxgquudri78vw" path="res://levels/Level1/slidepuzzle/img/tile3.png" id="3_raj0f"]
-[ext_resource type="Texture2D" uid="uid://c7mg2y6iu5fpe" path="res://levels/Level1/slidepuzzle/img/tile4.png" id="4_eqdyc"]
-[ext_resource type="Texture2D" uid="uid://cv5xa3y4qks25" path="res://levels/Level1/slidepuzzle/img/tile5.png" id="5_hw1ep"]
-[ext_resource type="Texture2D" uid="uid://baeos5sjd5qdc" path="res://levels/Level1/slidepuzzle/img/tile6.png" id="6_dry6o"]
-[ext_resource type="Texture2D" uid="uid://bxwsnygmy48yo" path="res://levels/Level1/slidepuzzle/img/tile7.png" id="7_bhybp"]
-[ext_resource type="Texture2D" uid="uid://caipmp2uq6tkw" path="res://levels/Level1/slidepuzzle/img/tile8.png" id="8_vt7jn"]
-[ext_resource type="Texture2D" uid="uid://dwt5313mmsfjd" path="res://levels/Level1/slidepuzzle/img/tile0.png" id="10_ckqme"]
+[ext_resource type="Script" path="res://slide.gd" id="1_iaqwo"]
+[ext_resource type="Texture2D" uid="uid://dgcolpjnt0wbm" path="res://levels/Level1/slidepuzzle/assets/tile0.png" id="2_thf3l"]
+[ext_resource type="Texture2D" uid="uid://ds6spxcybk7pb" path="res://levels/Level1/slidepuzzle/assets/tile1.png" id="3_par3l"]
+[ext_resource type="Texture2D" uid="uid://1locjp7lr0hc" path="res://levels/Level1/slidepuzzle/assets/tile2.png" id="4_7yt3x"]
+[ext_resource type="Texture2D" uid="uid://chigvcfixurgh" path="res://levels/Level1/slidepuzzle/assets/tile3.png" id="5_eja7d"]
+[ext_resource type="Texture2D" uid="uid://bejayfddvbm5q" path="res://levels/Level1/slidepuzzle/assets/tile4.png" id="6_5okan"]
+[ext_resource type="Texture2D" uid="uid://bccbxrdr4rqco" path="res://levels/Level1/slidepuzzle/assets/tile5.png" id="7_ojom0"]
+[ext_resource type="Texture2D" uid="uid://b0in85dgjm228" path="res://levels/Level1/slidepuzzle/assets/tile6.png" id="8_0m1vt"]
+[ext_resource type="Texture2D" uid="uid://bnqyyyylmexej" path="res://levels/Level1/slidepuzzle/assets/tile7.png" id="9_syuvw"]
+[ext_resource type="Texture2D" uid="uid://dt6bh1cbudb6f" path="res://levels/Level1/slidepuzzle/assets/tile8.png" id="10_hh0x1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k24se"]
-size = Vector2(757.632, 762.632)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl3tn"]
+size = Vector2(150, 150)
 
-[node name="Slide" type="CanvasLayer"]
+[node name="slide" type="Area2D"]
+script = ExtResource("1_iaqwo")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 80.0
-offset_top = 16.0
-offset_right = 240.0
-offset_bottom = 176.0
-color = Color(0.639216, 0.505882, 0.435294, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(75, 75)
+shape = SubResource("RectangleShape2D_gl3tn")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(112, 96)
-scale = Vector2(0.19, 0.19)
-script = ExtResource("1_r8tyx")
+[node name="Tile1" type="Sprite2D" parent="."]
+position = Vector2(25, 25)
+texture = ExtResource("3_par3l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(252.763, 2.89474)
-shape = SubResource("RectangleShape2D_k24se")
+[node name="Tile2" type="Sprite2D" parent="."]
+position = Vector2(75, 25)
+texture = ExtResource("4_7yt3x")
 
-[node name="tile1" type="Sprite2D" parent="Area2D"]
-position = Vector2(0, -252.632)
-texture = ExtResource("1_464yg")
+[node name="Tile3" type="Sprite2D" parent="."]
+position = Vector2(125, 25)
+texture = ExtResource("5_eja7d")
 
-[node name="tile2" type="Sprite2D" parent="Area2D"]
-position = Vector2(252.632, -252.632)
-texture = ExtResource("2_wo57h")
+[node name="Tile4" type="Sprite2D" parent="."]
+position = Vector2(25, 75)
+texture = ExtResource("6_5okan")
 
-[node name="tile3" type="Sprite2D" parent="Area2D"]
-position = Vector2(505.263, -252.632)
-texture = ExtResource("3_raj0f")
+[node name="Tile5" type="Sprite2D" parent="."]
+position = Vector2(75, 75)
+texture = ExtResource("7_ojom0")
 
-[node name="tile4" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("4_eqdyc")
+[node name="Tile6" type="Sprite2D" parent="."]
+position = Vector2(125, 75)
+texture = ExtResource("8_0m1vt")
 
-[node name="tile5" type="Sprite2D" parent="Area2D"]
-position = Vector2(252.632, 0)
-texture = ExtResource("5_hw1ep")
+[node name="Tile7" type="Sprite2D" parent="."]
+position = Vector2(25, 125)
+texture = ExtResource("9_syuvw")
 
-[node name="tile6" type="Sprite2D" parent="Area2D"]
-position = Vector2(505.263, 0)
-texture = ExtResource("6_dry6o")
+[node name="Tile8" type="Sprite2D" parent="."]
+position = Vector2(75, 125)
+texture = ExtResource("10_hh0x1")
 
-[node name="tile7" type="Sprite2D" parent="Area2D"]
-position = Vector2(0, 252.632)
-texture = ExtResource("7_bhybp")
-
-[node name="tile8" type="Sprite2D" parent="Area2D"]
-position = Vector2(252.632, 252.632)
-texture = ExtResource("8_vt7jn")
-
-[node name="tile0" type="Sprite2D" parent="Area2D"]
-position = Vector2(505.263, 252.632)
-texture = ExtResource("10_ckqme")
+[node name="Tile9" type="Sprite2D" parent="."]
+position = Vector2(125, 125)
+texture = ExtResource("2_thf3l")
