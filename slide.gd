@@ -4,6 +4,9 @@ var tiles = []
 var solved = []
 var mouse = false
 
+const initX=85
+const initY=20
+
 signal slide_solved
 
 # Called when the node enters the scene tree for the first time.

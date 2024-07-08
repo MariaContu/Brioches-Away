@@ -1,11 +1,13 @@
 extends Node2D
 
+@onready var character = $"../YSort/Character"
 @onready var levelpassedsound = $"../levelpassedsound"
 @onready var bgsound = $"../bgsound"
 @onready var area_inicial = $area_inicial
 @onready var slide = $"../slide"
+@onready var areas = $"."
 
-
+var puzzle_on=false
 var puzzle_solved = false
 var saindolevel = false
 
@@ -35,6 +37,11 @@ const lines_puzzle: Array[String] = [
 	"Acho que a gente tava brincando aqui aquela hora..."
 ]
 
+var messages_solved = false
+const lines_solved: Array[String] = [
+	"Aha! Eu sou muito boa nessa brincadeira! Depois daqui, mamãe chamou pra comer bolo.",
+	"Pra cozinha!"
+]
 
 
 func _ready():
@@ -66,6 +73,7 @@ func interagir_com_cozinha():
 			
 			get_tree().change_scene_to_file("res://levels/Level2/level2.tscn")
 			return
+		return
 			
 	if messages_kitchen_before:
 		return
@@ -74,20 +82,16 @@ func interagir_com_cozinha():
 		await ChatManager.all_lines_displayed
 		messages_kitchen_before = true
 		
-		
-
 func interagir_com_puzzle():
 	if messages_puzzle:
-		slide.show()
-		joga_slide()
-		await slide.slide_solved
-		slide.hide()
+		if not puzzle_solved:
+			start_puzzle()
+			return
 		
-	if not ChatManager.is_message_active:
+	if not ChatManager.is_message_active && not messages_puzzle:
 			ChatManager.start_message(lines_puzzle)
 			await ChatManager.all_lines_displayed
 			messages_puzzle = true
-			puzzle_solved = true
 	
 func interagir_com_books():
 	if messages_shown_books:
@@ -105,5 +109,14 @@ func interagir_com_clock():
 			await ChatManager.all_lines_displayed
 			messages_shown_clock = true
 
-func joga_slide():
-	slide.set_process_input(true)
+func start_puzzle():
+	slide.show()
+	await slide.slide_solved
+	puzzle_solved = true
+	slide.hide()
+	if not messages_solved:
+			if not ChatManager.is_message_active && puzzle_solved:
+				ChatManager.start_message(lines_solved)
+				await ChatManager.all_lines_displayed
+				messages_solved = true
+				return
