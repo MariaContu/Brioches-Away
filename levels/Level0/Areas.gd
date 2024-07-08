@@ -50,6 +50,8 @@ const lines_begin: Array[String] = [
 	"Vamos refazer os passos... Se não me engano, a gente foi brinca na sala!"
 ]
 
+var saindo_level = false
+
 func _ready():
 	bgsound.play()
 	drawing.hide()
@@ -102,13 +104,17 @@ func interagir_com_relogio():
 
 func interagir_com_porta():
 	if messages_shown_door_after:
-		bgsound.stop()
-		levelpassedsound.play()
-		
-		TransitionLayer.transition("Level 1", "A Sala de Estar")
-		await TransitionLayer.transitionfinished
-		
-		get_tree().change_scene_to_file("res://levels/Level1/level1.tscn")
+		if not saindo_level:
+			bgsound.stop()
+			levelpassedsound.play()
+			
+			saindo_level=true
+			
+			TransitionLayer.transition("Level 1", "A Sala de Estar")
+			await TransitionLayer.transitionfinished
+			
+			get_tree().change_scene_to_file("res://levels/Level1/level1.tscn")
+			return
 		return
 		
 	if key_found:
